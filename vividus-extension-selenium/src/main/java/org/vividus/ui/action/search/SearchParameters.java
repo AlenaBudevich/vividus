@@ -21,6 +21,7 @@ import java.util.Objects;
 public class SearchParameters
 {
     private String value;
+    private String shadowHost;
     private Visibility visibility = Visibility.VISIBLE;
     private boolean waitForElement = true;
 
@@ -34,8 +35,21 @@ public class SearchParameters
         this.value = value;
     }
 
+    public SearchParameters(String shadowHost, String value)
+    {
+        this.shadowHost = shadowHost;
+        this.value = value;
+    }
+
     public SearchParameters(String value, Visibility visibility)
     {
+        this.value = value;
+        this.visibility = visibility;
+    }
+
+    public SearchParameters(String shadowHost, String value, Visibility visibility)
+    {
+        this.shadowHost = shadowHost;
         this.value = value;
         this.visibility = visibility;
     }
@@ -47,9 +61,22 @@ public class SearchParameters
         this.waitForElement = waitForElement;
     }
 
+    public SearchParameters(String shadowHost, String value, Visibility visibility, boolean waitForElement)
+    {
+        this.shadowHost = shadowHost;
+        this.value = value;
+        this.visibility = visibility;
+        this.waitForElement = waitForElement;
+    }
+
     public String getValue()
     {
         return value;
+    }
+
+    public String getShadowHost()
+    {
+        return shadowHost;
     }
 
     public Visibility getVisibility()
@@ -83,7 +110,7 @@ public class SearchParameters
     @Override
     public int hashCode()
     {
-        return Objects.hash(value, visibility, waitForElement);
+        return Objects.hash(shadowHost, value, visibility, waitForElement);
     }
 
     @Override
@@ -102,7 +129,9 @@ public class SearchParameters
             return false;
         }
         SearchParameters other = (SearchParameters) obj;
-        return Objects.equals(value, other.value) && visibility == other.visibility
+        return Objects.equals(value, other.value)
+                && Objects.deepEquals(shadowHost, other.shadowHost)
+                && visibility == other.visibility
                 && waitForElement == other.waitForElement;
     }
 }

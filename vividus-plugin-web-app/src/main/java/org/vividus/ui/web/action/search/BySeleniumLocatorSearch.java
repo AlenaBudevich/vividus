@@ -40,4 +40,9 @@ public class BySeleniumLocatorSearch extends AbstractWebElementSearchAction impl
     {
         return findElements(searchContext, how.buildBy(parameters.getValue()), parameters);
     }
+
+    public How getHow()
+    {
+        return how;
+    }
 }

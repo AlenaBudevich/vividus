@@ -180,6 +180,10 @@
         <constructor-arg index="0" value="#{T(org.vividus.ui.web.action.search.WebLocatorType).ELEMENT_NAME}" />
     </bean>
 
+    <bean class="org.vividus.ui.web.action.search.ShadowCssSelectorSearch" parent="abstractWebElementSearchAction" >
+        <constructor-arg index="0" value="#{T(org.vividus.ui.web.action.search.WebLocatorType).SHADOW_CSS_SELECTOR}" />
+    </bean>
+
     <bean id="webElementHighlighter" class="org.vividus.selenium.screenshot.WebElementHighlighter" />
 
     <bean id="webApplicationListener" class="org.vividus.ui.web.listener.DelegatingWebApplicationListener">

@@ -48,6 +48,11 @@ public class Locator
         this(locatorType, new SearchParameters(searchValue));
     }
 
+    public Locator(LocatorType locatorType, String shadowHost, String searchValue)
+    {
+        this(locatorType, new SearchParameters(shadowHost, searchValue));
+    }
+
     public Locator addFilter(LocatorType filterAttributeType, String filterValue)
     {
         checkIfApplicable(filterAttributeType, IElementFilterAction.class, "Filter");

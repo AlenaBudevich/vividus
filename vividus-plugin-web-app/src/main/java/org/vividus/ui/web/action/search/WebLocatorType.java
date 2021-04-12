@@ -52,7 +52,8 @@ public enum WebLocatorType implements LocatorType
     CLASS_NAME("Class name", BySeleniumLocatorSearch.class),
     XPATH("XPath", XpathSearch.class),
     ID("Id", BySeleniumLocatorSearch.class),
-    TAG_NAME("Tag name", BySeleniumLocatorSearch.class);
+    TAG_NAME("Tag name", BySeleniumLocatorSearch.class),
+    SHADOW_CSS_SELECTOR("Shadow CSS selector", ShadowCssSelectorSearch.class);
 
     private final String attributeName;
     private final Class<? extends IElementAction> actionClass;
